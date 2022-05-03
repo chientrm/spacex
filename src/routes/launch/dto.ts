@@ -1,0 +1,32 @@
+export interface DTO {
+	name: string;
+	date: number;
+	campaign?: string;
+	recovery?: string;
+	media?: string;
+	launch?: string;
+	presskit?: string;
+	article?: string;
+	wikipedia?: string;
+	campaignTitle?: string;
+	recoveryTitle?: string;
+	mediaTitle?: string;
+	launchTitle?: string;
+	presskitTitle?: string;
+	articleTitle?: string;
+	wikipediaTitle?: string;
+	details?: string;
+	image?: string;
+	images: string[];
+	youtubeId?: string;
+	launchpadId: string;
+	launchpadName: string;
+	rocketId: string;
+	rocketName: string;
+	capsuleIds: string[];
+	capsuleSerials: string[];
+	payloadIds: string[];
+	payloadNames: string[];
+	success?: boolean;
+	upcoming?: boolean;
+}
