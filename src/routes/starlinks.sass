@@ -1,0 +1,16 @@
+section
+    width: 100%
+section#filter
+    @include row
+    @include wrap
+    align-items: center
+section#content
+    table
+        border-collapse: collapse
+        tr
+            th
+                text-align: left
+            th,td
+                padding: 10px
+        tr.decayed
+            background-color: $color4
