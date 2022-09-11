@@ -106,7 +106,7 @@
 				{/each}
 			</ul>
 			<h3>{data.timezone?.toUpperCase()}</h3>
-			<Clock />
+			<Clock tz={data.timezone} />
 		</aside>
 		<main>
 			<slot />
