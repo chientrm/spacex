@@ -9,3 +9,12 @@ declare namespace App {
 	// interface PageError {}
 	// interface Platform {}
 }
+
+declare namespace Data {
+	interface Launch {
+		id: string;
+		name: string;
+		date_unix: number;
+		date_utc: string;
+	}
+}
