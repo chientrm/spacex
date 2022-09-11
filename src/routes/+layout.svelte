@@ -11,11 +11,6 @@
 
 	const topics = [
 		{
-			href: routes.HOME,
-			title: 'SpaceX Data Homepage',
-			caption: 'HOME'
-		},
-		{
 			href: routes.COMING_SOON,
 			title: 'Detailed info for serialized dragon capsules',
 			caption: 'CAPSULES'
@@ -46,7 +41,7 @@
 			caption: 'LANDPADS'
 		},
 		{
-			href: routes.COMING_SOON,
+			href: routes.LAUNCHES,
 			title: 'Detailed info about launches',
 			caption: 'LAUNCHES'
 		},
