@@ -1,11 +1,13 @@
 <script lang="ts">
 	import Anchor from '$lib/components/Anchor.svelte';
+	import Clock from '$lib/components/Clock.svelte';
+	import Logo from '$lib/components/Logo.svelte';
 	import routes from '$lib/constants/routes';
 	import favicon from '$lib/images/favicon.ico';
 	import 'modern-normalize/modern-normalize.css';
 	import '../app.css';
-	import Logo from '$lib/components/Logo.svelte';
-	import Clock from '$lib/components/Clock.svelte';
+	import type { LayoutServerData } from './$types';
+	export let data: LayoutServerData;
 
 	const topics = [
 		{
@@ -103,9 +105,7 @@
 					</li>
 				{/each}
 			</ul>
-			<h3>
-				{Intl.DateTimeFormat().resolvedOptions().timeZone.toUpperCase()}
-			</h3>
+			<h3>{data.timezone?.toUpperCase()}</h3>
 			<Clock />
 		</aside>
 		<main>
