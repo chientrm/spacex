@@ -1,24 +1,8 @@
 <script lang="ts">
-	import '../app.sass';
-	// @ts-ignore
-	import Clock from '$lib/components/Clock.svelte';
-	import Logo from '$lib/components/Logo.svelte';
-	import { slide } from 'svelte/transition';
-	import { onMount } from 'svelte';
-	import Menu from 'svelte-material-icons/Menu.svelte';
-	import Close from 'svelte-material-icons/Close.svelte';
-
-	let isMobile = true;
-	$: showMenu = !isMobile;
-
-	onMount(() => {
-		const resize = () =>
-			(isMobile = !window.matchMedia('(min-width: 768px)').matches);
-		window.onresize = () => resize();
-		resize();
-	});
-
-	const links: Link[] = [
+	import favicon from '$lib/images/favicon.ico';
+	import 'modern-normalize/modern-normalize.css';
+	import '../app.css';
+	const links = [
 		{
 			href: '/',
 			title: 'SpaceX Data Homepage',
@@ -97,48 +81,16 @@
 	];
 </script>
 
-<main>
-	<nav>
-		<a href="/"><Logo /></a>
-		{#if showMenu}
-			<ul transition:slide>
-				{#each links as link (link.caption)}
-					<li>
-						<a href={link.href} title={link.title}>{link.caption}</a>
-					</li>
-				{/each}
-			</ul>
-		{/if}
-		{#if isMobile}
-			<button on:click={() => (showMenu = !showMenu)} aria-label="Toggle Menu">
-				{#if showMenu}
-					<Close />
-				{:else}
-					<Menu />
-				{/if}
-			</button>
-		{/if}
-		<h3>
-			{Intl.DateTimeFormat().resolvedOptions().timeZone.toUpperCase()}
-		</h3>
-		<Clock />
-	</nav>
-	<article>
-		<slot />
-	</article>
-</main>
+<svelte:head>
+	<link rel="icon" href={favicon} />
+</svelte:head>
+
 <footer>
 	<span>Copyright &copy; {new Date().getFullYear()} - SpaceX Data</span>
 	<p>
-		We are not affiliated, associated, authorized, endorsed by, or in any way
-		officially connected with Space Exploration Technologies Corp (SpaceX), or
-		any of its subsidiaries or its affiliates. The names SpaceX as well as
-		related names, marks, emblems and images are registered trademarks of their
-		respective owners.
+		We are not affiliated, associated, authorized, endorsed by, or in any way officially connected
+		with Space Exploration Technologies Corp (SpaceX), or any of its subsidiaries or its affiliates.
+		The names SpaceX as well as related names, marks, emblems and images are registered trademarks
+		of their respective owners.
 	</p>
 </footer>
-
-<style lang="sass">
-	@import 'normalize.css'
-	@import './__layout.sass'
-</style>
