@@ -17,4 +17,22 @@ declare namespace Data {
 		date_unix: number;
 		date_utc: string;
 	}
+	interface Starlink {
+		spaceTrack: {
+			OBJECT_NAME: string;
+		};
+		latitude?: number;
+		longitude?: number;
+		height_km?: number;
+	}
+}
+
+declare module '*?webp' {
+	const value: any;
+	export default value;
+}
+
+declare module '*&webp' {
+	const value: any;
+	export default value;
 }
