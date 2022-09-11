@@ -1,80 +1,85 @@
 <script lang="ts">
+	import Anchor from '$lib/components/Anchor.svelte';
+	import routes from '$lib/constants/routes';
 	import favicon from '$lib/images/favicon.ico';
 	import 'modern-normalize/modern-normalize.css';
 	import '../app.css';
-	const links = [
+	import Logo from '$lib/components/Logo.svelte';
+	import Clock from '$lib/components/Clock.svelte';
+
+	const topics = [
 		{
-			href: '/',
+			href: routes.HOME,
 			title: 'SpaceX Data Homepage',
 			caption: 'HOME'
 		},
 		{
-			href: '/coming-soon',
+			href: routes.COMING_SOON,
 			title: 'Detailed info for serialized dragon capsules',
 			caption: 'CAPSULES'
 		},
 		{
-			href: '/coming-soon',
+			href: routes.COMING_SOON,
 			title: 'Detailed info about SpaceX as a company',
 			caption: 'COMPANY INFO'
 		},
 		{
-			href: '/coming-soon',
+			href: routes.COMING_SOON,
 			title: 'Detailed info for serialized first stage cores',
 			caption: 'CORES'
 		},
 		{
-			href: '/coming-soon',
+			href: routes.COMING_SOON,
 			title: 'Detailed info on dragon crew members',
 			caption: 'CREW'
 		},
 		{
-			href: '/coming-soon',
+			href: routes.COMING_SOON,
 			title: 'Detailed info about dragon capsule versions',
 			caption: 'DRAGONS'
 		},
 		{
-			href: '/coming-soon',
+			href: routes.COMING_SOON,
 			title: 'Detailed info about landing pads and ships',
 			caption: 'LANDPADS'
 		},
 		{
-			href: '/launches',
+			href: routes.COMING_SOON,
 			title: 'Detailed info about launches',
 			caption: 'LAUNCHES'
 		},
 		{
-			href: '/coming-soon',
+			href: routes.COMING_SOON,
 			title: 'Detailed info about launchpads',
 			caption: 'LAUNCHPADS'
 		},
 		{
-			href: '/coming-soon',
+			href: routes.COMING_SOON,
 			title: 'Detailed info about launch payloads',
 			caption: 'PAYLOADS'
 		},
 		{
-			href: '/coming-soon',
+			href: routes.COMING_SOON,
 			title: "Detailed info about Elon's Tesla roadster's current position",
 			caption: 'ROADSTER INFO'
 		},
 		{
-			href: '/coming-soon',
+			href: routes.COMING_SOON,
 			title: 'Detailed info about rocket versions',
 			caption: 'ROCKETS'
 		},
 		{
-			href: '/coming-soon',
+			href: routes.COMING_SOON,
 			title: 'Detailed info about ships in the SpaceX fleet',
 			caption: 'SHIPS'
 		},
 		{
-			href: '/starlinks',
+			href: routes.STARLINK,
 			title: 'Detailed info about Starlink satellites and orbits',
 			caption: 'STARLINKS'
 		},
 		{
-			href: '/coming-soon',
+			href: routes.COMING_SOON,
 			title: 'Detailed info on SpaceX historical events',
 			caption: 'HISTORY'
 		}
@@ -87,13 +92,70 @@
 	<meta name="google-site-verification" content={gsiteVerification} />
 </svelte:head>
 
-<footer>
-	<span>Copyright &copy; {new Date().getFullYear()} - SpaceX Data</span>
-	<p>
-		We are not affiliated, associated, authorized, endorsed by, or in any way
-		officially connected with Space Exploration Technologies Corp (SpaceX), or
-		any of its subsidiaries or its affiliates. The names SpaceX as well as
-		related names, marks, emblems and images are registered trademarks of their
-		respective owners.
-	</p>
-</footer>
+<article>
+	<section>
+		<aside>
+			<a href={routes.HOME}><Logo /></a>
+			<ul>
+				{#each topics as { href, title, caption }}
+					<li>
+						<Anchor {href} {title} startsWith={true}>{caption}</Anchor>
+					</li>
+				{/each}
+			</ul>
+			<h3>
+				{Intl.DateTimeFormat().resolvedOptions().timeZone.toUpperCase()}
+			</h3>
+			<Clock />
+		</aside>
+		<main>
+			<slot />
+		</main>
+	</section>
+
+	<footer>
+		<div />
+		<span>Copyright &copy; {new Date().getFullYear()} - SpaceX Data</span>
+		<p>
+			<i>
+				We are not affiliated, associated, authorized, endorsed by, or in any
+				way officially connected with Space Exploration Technologies Corp
+				(SpaceX), or any of its subsidiaries or its affiliates. The names SpaceX
+				as well as related names, marks, emblems and images are registered
+				trademarks of their respective owners.
+			</i>
+		</p>
+	</footer>
+</article>
+
+<style>
+	article {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	section {
+		display: flex;
+		flex-direction: row;
+	}
+	section > aside {
+		width: 20em;
+		padding: 1em;
+	}
+	div {
+		height: 1px;
+		margin: 1em 0;
+		background-color: lightgray;
+	}
+	ul {
+		list-style-type: none;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5em;
+	}
+	footer {
+		padding: 1em;
+	}
+</style>
