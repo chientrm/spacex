@@ -79,18 +79,21 @@
 			caption: 'HISTORY'
 		}
 	];
+	const gsiteVerification = 'google4a2b4fbf5f6ce867';
 </script>
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<meta name="google-site-verification" content={gsiteVerification} />
 </svelte:head>
 
 <footer>
 	<span>Copyright &copy; {new Date().getFullYear()} - SpaceX Data</span>
 	<p>
-		We are not affiliated, associated, authorized, endorsed by, or in any way officially connected
-		with Space Exploration Technologies Corp (SpaceX), or any of its subsidiaries or its affiliates.
-		The names SpaceX as well as related names, marks, emblems and images are registered trademarks
-		of their respective owners.
+		We are not affiliated, associated, authorized, endorsed by, or in any way
+		officially connected with Space Exploration Technologies Corp (SpaceX), or
+		any of its subsidiaries or its affiliates. The names SpaceX as well as
+		related names, marks, emblems and images are registered trademarks of their
+		respective owners.
 	</p>
 </footer>
