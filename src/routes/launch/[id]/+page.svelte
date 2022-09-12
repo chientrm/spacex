@@ -2,7 +2,7 @@
 	import routes from '$lib/constants/routes';
 	import strings from '$lib/constants/strings';
 	import { date_format, get_small_flickr } from '$lib/utils';
-	import avatar from '$lib/images/spacex-avatar.png?webp';
+	import avatar from '$lib/images/spacex-avatar.png';
 	import type { PageServerData } from './$types';
 	export let data: PageServerData;
 	const {

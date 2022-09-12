@@ -105,7 +105,10 @@
 	<section>
 		<aside>
 			<a href={routes.HOME}><Logo /></a>
-			<a href={routes.GITHUB_REPO}><GithubCircle /> {strings.SOURCE}</a>
+			<a href={routes.GITHUB_REPO} target="_blank">
+				<GithubCircle />
+				{strings.SOURCE}
+			</a>
 			<ul>
 				{#each topics as { href, title, caption }}
 					<li>

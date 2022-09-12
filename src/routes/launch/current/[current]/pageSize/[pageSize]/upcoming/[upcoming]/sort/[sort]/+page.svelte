@@ -1,7 +1,7 @@
 <script lang="ts">
 	import strings from '$lib/constants/strings';
 	import type { PageServerData } from './$types';
-	import avatar from '$lib/images/spacex-avatar.png?webp';
+	import avatar from '$lib/images/spacex-avatar.png';
 	import routes from '$lib/constants/routes';
 	import { date_format } from '$lib/utils';
 	import Anchor from '$lib/components/Anchor.svelte';
