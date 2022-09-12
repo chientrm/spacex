@@ -33,9 +33,11 @@ const date_format = ({
 		if (!url) return;
 		const res = await fetch(url),
 			text = await res.text(),
-			titles = text.match(/<title>(.*?)<\/title>/),
-			title = titles![1];
-		return { url, title };
+			titles = text.match(/<title>(.*?)<\/title>/);
+		if (titles && titles[1]) {
+			return { url, title: titles[1] };
+		}
+		return undefined;
 	},
 	get_small_flickr = (url: string) => url.replace('_o.jpg', '_n.jpg');
 
