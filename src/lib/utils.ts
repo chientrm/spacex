@@ -25,6 +25,9 @@ const date_format = ({
 		};
 		request = requestAnimationFrame(animate);
 		return () => cancelAnimationFrame(request);
+	},
+	truncate = (s: string, n: number) => {
+		return s.length > n ? s.slice(0, n - 1) + '&hellip;' : s;
 	};
 
-export { date_format, frame_loop };
+export { date_format, frame_loop, truncate };

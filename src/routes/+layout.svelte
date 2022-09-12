@@ -41,7 +41,7 @@
 			caption: 'LANDPADS'
 		},
 		{
-			href: routes.LAUNCHES,
+			href: routes.LAUNCHES.GET,
 			title: 'Detailed info about launches',
 			caption: 'LAUNCHES'
 		},
@@ -96,7 +96,7 @@
 			<ul>
 				{#each topics as { href, title, caption }}
 					<li>
-						<Anchor {href} {title} startsWith={true}>{caption}</Anchor>
+						<Anchor {href} {title}>{caption}</Anchor>
 					</li>
 				{/each}
 			</ul>
@@ -133,10 +133,11 @@
 	section {
 		display: flex;
 		flex-direction: row;
-	}
-	section > aside {
-		width: 20em;
 		padding: 1em;
+	}
+	aside {
+		display: flex;
+		flex-direction: column;
 	}
 	div {
 		height: 1px;
@@ -148,7 +149,16 @@
 		flex-direction: column;
 		gap: 0.5em;
 	}
+	a {
+		width: 15em;
+	}
 	footer {
 		padding: 1em;
+	}
+	main {
+		display: flex;
+		flex-direction: column;
+		padding: 1em;
+		flex-grow: 1;
 	}
 </style>

@@ -31,7 +31,7 @@
 				</li>
 			{/each}
 		</ul>
-		<a href={routes.LAUNCHES}>{strings.ALL_LAUNCHES}</a>
+		<a href={routes.LAUNCHES.GET}>{strings.ALL_LAUNCHES}</a>
 	</div>
 	<div>
 		<h2>{strings.STARLINKS}</h2>

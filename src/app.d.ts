@@ -16,6 +16,14 @@ declare namespace Data {
 		name: string;
 		date_unix: number;
 		date_utc: string;
+		upcoming: boolean;
+		links: {
+			patch: {
+				small?: string;
+			};
+		};
+		details?: string;
+		sucess?: boolean;
 	}
 	interface Starlink {
 		spaceTrack: {

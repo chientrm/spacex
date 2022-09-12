@@ -9,7 +9,8 @@ const get = <T>(uri: string) =>
 				return res;
 			})
 			.then((res) => res.json<T>()),
-	list_upcoming_launches = () => get<Data.Launch[]>('/launches/upcoming'),
-	list_starlinks = () => get<Data.Starlink[]>('/starlink');
+	all_launches = () => get<Data.Launch[]>('/launches'),
+	upcoming_launches = () => get<Data.Launch[]>('/launches/upcoming'),
+	all_starlinks = () => get<Data.Starlink[]>('/starlink');
 
-export { list_upcoming_launches, list_starlinks };
+export { all_launches, upcoming_launches, all_starlinks };

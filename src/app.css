@@ -39,3 +39,10 @@ ol {
 	list-style: none;
 	padding: 0;
 }
+nav,
+label {
+	display: flex;
+	flex-direction: row;
+	align-items: baseline;
+	gap: 1em;
+}
