@@ -21,9 +21,29 @@ declare namespace Data {
 			patch: {
 				small?: string;
 			};
+			youtube_id?: string;
+			reddit: {
+				campaign?: string;
+				recovery?: string;
+				media?: string;
+				launch?: string;
+			};
+			presskit?: string;
+			article?: string;
+			wikipedia?: string;
+			flickr: {
+				original: string[];
+			};
 		};
+		capsules: string[];
 		details?: string;
-		sucess?: boolean;
+		success?: boolean;
+		launchpad?: string;
+		rocket?: string;
+		crew: string[];
+		ships: string[];
+		capsules: string[];
+		payloads: string[];
 	}
 	interface Starlink {
 		spaceTrack: {
@@ -32,6 +52,19 @@ declare namespace Data {
 		latitude?: number;
 		longitude?: number;
 		height_km?: number;
+	}
+	interface Launchpad {
+		name?: string;
+		full_name?: string;
+	}
+	interface Rocket {
+		name: string;
+	}
+	interface Payload {
+		name?: string;
+	}
+	interface Capsule {
+		serial: string;
 	}
 }
 

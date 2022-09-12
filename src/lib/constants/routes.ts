@@ -2,6 +2,7 @@ export default {
 	HOME: '/',
 	COMING_SOON: '/coming-soon',
 	STARLINK: '/starlink',
+	GITHUB_REPO: 'https://github.com/chientrm/spacex',
 	LAUNCHES: {
 		GET: '/launch',
 		CURRENT: (current: number) => ({
@@ -13,5 +14,10 @@ export default {
 			})
 		})
 	},
-	LAUNCH: (id: string) => `/launch/${id}`
+	LAUNCH: (id: string) => `/launch/${id}`,
+	LAUNCHPAD: (id: string) => `/launchpad/${id}`,
+	ROCKET: (id: string) => `/rocket/${id}`,
+	CAPSULE: (id: string) => `/capsule/${id}`,
+	PAYLOAD: (id: string) => `/payload/${id}`,
+	YOUTUBE: (id: string) => `https://www.youtube.com/embed/${id}?autoplay=1`
 };

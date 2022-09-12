@@ -29,7 +29,7 @@ export const load: PageServerLoad = async ({ url, params, parent }) => {
 	launches = launches.slice((current - 1) * pageSize, current * pageSize);
 	return {
 		launches: launches.map(
-			({ id, name, date_utc, links, details, sucess }) => ({
+			({ id, name, date_utc, links, details, success: sucess }) => ({
 				id,
 				name,
 				date_utc,

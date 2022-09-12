@@ -10,7 +10,7 @@
 </script>
 
 <svelte:head>
-	<title>{strings.TITLE}</title>
+	<title>{strings.THE_TITLE}</title>
 	<meta name="description" content={strings.DESCRIPTION} />
 </svelte:head>
 

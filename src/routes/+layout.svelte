@@ -1,10 +1,14 @@
 <script lang="ts">
+	import { navigating } from '$app/stores';
 	import Anchor from '$lib/components/Anchor.svelte';
 	import Clock from '$lib/components/Clock.svelte';
 	import Logo from '$lib/components/Logo.svelte';
+	import Navigating from '$lib/components/Navigating.svelte';
 	import routes from '$lib/constants/routes';
+	import strings from '$lib/constants/strings';
 	import favicon from '$lib/images/favicon.ico';
 	import 'modern-normalize/modern-normalize.css';
+	import GithubCircle from 'svelte-material-icons/GithubCircle.svelte';
 	import '../app.css';
 	import type { LayoutServerData } from './$types';
 	export let data: LayoutServerData;
@@ -87,12 +91,21 @@
 <svelte:head>
 	<link rel="icon" href={favicon} />
 	<meta name="google-site-verification" content={gsiteVerification} />
+	<meta property="og:title" content={strings.THE_TITLE} />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="SpaceX Data" />
 </svelte:head>
+
+{#if $navigating}
+	<Navigating />
+{/if}
 
 <article>
 	<section>
 		<aside>
 			<a href={routes.HOME}><Logo /></a>
+			<a href={routes.GITHUB_REPO}><GithubCircle /> {strings.SOURCE}</a>
 			<ul>
 				{#each topics as { href, title, caption }}
 					<li>
@@ -138,6 +151,7 @@
 	aside {
 		display: flex;
 		flex-direction: column;
+		gap: 1em;
 	}
 	div {
 		height: 1px;
