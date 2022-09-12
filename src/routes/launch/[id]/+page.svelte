@@ -200,12 +200,7 @@
 <h2>{strings.GALLERY}</h2>
 <section>
 	<a href={image || avatar} alt={image} target="_blank">
-		<img
-			id="avatar"
-			src={image ? get_small_flickr(image) : avatar}
-			alt={name}
-			loading="lazy"
-		/>
+		<img id="avatar" src={image ?? avatar} alt={name} loading="lazy" />
 	</a>
 	{#each images as image}
 		<a href={image} alt={name} target="_blank">
