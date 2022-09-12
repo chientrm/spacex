@@ -1,0 +1,38 @@
+export default {
+	COMING_SOON: 'Coming soon...',
+	LAUNCHES: 'LAUNCHES',
+	DISCUSSION: 'Discussion',
+	SOURCE: 'Source',
+	DESCRIPTION:
+		"SpaceX Data streaming data for serialized dragon capsules, serialized first stage cores, dragon crew members, dragon capsule versions, landing pads and ships, launches, launchpads, launch payloads, Elon's Tesla roadster's current position, rocket versions, ships in the SpaceX fleet, Starlink satellites and orbits",
+	SETUP: 'Setup',
+	THE_TITLE: 'SpaceX Data',
+	ALL_LAUNCHES: 'Watch all launches',
+	STARLINKS: 'STARLINKS',
+	ALL: 'All',
+	PAST: 'Past',
+	UPCOMING: 'Upcoming',
+	LATEST: 'Latest',
+	OLDEST: 'Oldest',
+	PAGE_SIZE: 'Page size',
+	SEARCH: 'Search',
+	SUCCESS: 'Success',
+	LAUNCHPAD: 'Launchpad',
+	PRESSKIT: 'Presskit',
+	ARTICLE: 'Article',
+	WIKIPEDIA: 'Wikipedia',
+	REDDIT: {
+		CAMPAIN: 'Reddit campain',
+		RECOVERY: 'Reddit recovery',
+		MEDIA: 'Reddit media',
+		LAUNCH: 'Reddit launch'
+	},
+	ROCKET: 'Rocket',
+	CAPSULE: 'Capsule',
+	PAYLOAD: 'Payload',
+	PART: 'Part',
+	FORUM: 'Forum',
+	TITLE: 'Title',
+	PART_NAME: 'Part name',
+	GALLERY: 'Gallery'
+};

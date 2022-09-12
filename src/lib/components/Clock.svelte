@@ -1,11 +1,16 @@
 <script lang="ts">
-	import moment from 'moment';
+	import { date_format } from '$lib/utils';
 	import { onDestroy } from 'svelte';
+	export let tz: string;
 
 	let now = Date.now();
 	let timer = setInterval(() => (now = Date.now()), 1000);
 	onDestroy(() => clearInterval(timer));
 </script>
 
-<div>{moment(now).format('MMMM DD YYYY').toUpperCase()}</div>
-<h3>{moment(now).format('hh:mm:ss A, Z')}</h3>
+<div>
+	{date_format({ date: now, tz, template: 'MMMM DD YYYY' }).toUpperCase()}
+</div>
+<div>
+	{date_format({ date: now, tz, template: 'hh:mm:ss A, Z' }).toUpperCase()}
+</div>

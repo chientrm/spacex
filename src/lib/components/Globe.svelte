@@ -1,11 +1,9 @@
 <script lang="ts">
-	// @ts-ignore
-	import Disc from '$lib/assets/disc.png?webp';
-	// @ts-ignore
-	import Earth from '$lib/assets/earth_map_BW.png?w=1536&webp&flatten?grayscale';
-	import glowFrag from '$lib/assets/glow.frag?raw';
-	import glowVert from '$lib/assets/glow.vert?raw';
-	import { frameLoop } from '$lib/utils';
+	import Disc from '$lib/images/disc.png?webp';
+	import Earth from '$lib/images/earth_map_BW.png?w=1536&flatten?grayscale&webp';
+	import glowFrag from '$lib/shaders/glow.frag?raw';
+	import glowVert from '$lib/shaders/glow.vert?raw';
+	import { frame_loop } from '$lib/utils';
 	import { onMount } from 'svelte';
 	import {
 		AdditiveBlending,
@@ -31,7 +29,12 @@
 	import { Text } from 'troika-three-text';
 	import { OrbitControls } from './OrbitControls';
 
-	export let starlinks: IndexDTO.Starlink[];
+	export let starlinks: {
+		name: string;
+		lat: number;
+		lng: number;
+		alt: number;
+	}[];
 	let canvas: HTMLCanvasElement;
 	const GLOBE_SIZE = 170;
 	let value: string;
@@ -132,7 +135,7 @@
 			false
 		);
 
-		const stopLoop = frameLoop(() => {
+		const stopLoop = frame_loop(() => {
 			control.update();
 			if (satelites) {
 				raycaster.setFromCamera(mouse, camera);

@@ -1,41 +1,42 @@
-import { encode, decode } from 'js-base64';
+import dayjs from 'dayjs';
+import timezone from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
-export const toBase64 = (o: any) => encode(JSON.stringify(o));
-
-export const fromBase64 = <T>(s: string) => JSON.parse(decode(s)) as T;
-
-export const truncate = (str: string, n: number, useWordBoundary = true) => {
-	if (str.length <= n) {
-		return str;
-	}
-	const subString = str.substr(0, n - 1); // the original check
-	return (
-		(useWordBoundary
-			? subString.substr(0, subString.lastIndexOf(' '))
-			: subString) + '...'
-	);
-};
-
-export const fetchData = <T>(url: string) =>
-	fetch(url)
-		.then((res) => res.json())
-		.then((data) => data as T);
-
-export const resizeImageViaUrl = (url: string) =>
-	url.replace('_o.jpg', '_n.jpg');
-
-export const frameLoop = (
-	callback: (now: number, deltaTime: number) => void
-) => {
-	let request: number;
-	let then: number;
-	const animate = (now: number) => {
-		then || (then = now);
-		const deltaTime = now - then;
-		then = now;
-		callback(now / 1000, deltaTime / 1000);
+const date_format = ({
+		date,
+		tz,
+		template
+	}: {
+		date: Date | string | number;
+		tz: string;
+		template: string;
+	}) => dayjs.tz(date, tz).format(template),
+	frame_loop = (callback: (now: number, deltaTime: number) => void) => {
+		let request: number;
+		let then: number;
+		const animate = (now: number) => {
+			then || (then = now);
+			const deltaTime = now - then;
+			then = now;
+			callback(now / 1000, deltaTime / 1000);
+			request = requestAnimationFrame(animate);
+		};
 		request = requestAnimationFrame(animate);
-	};
-	request = requestAnimationFrame(animate);
-	return () => cancelAnimationFrame(request);
-};
+		return () => cancelAnimationFrame(request);
+	},
+	truncate = (s: string, n: number) => {
+		return s.length > n ? s.slice(0, n - 1) + '&hellip;' : s;
+	},
+	for_title = async (url: string | undefined) => {
+		if (!url) return;
+		const res = await fetch(url),
+			text = await res.text(),
+			titles = text.match(/<title>(.*?)<\/title>/),
+			title = titles![1];
+		return { url, title };
+	},
+	get_small_flickr = (url: string) => url.replace('_o.jpg', '_n.jpg');
+
+export { date_format, frame_loop, truncate, for_title, get_small_flickr };
