@@ -39,6 +39,6 @@ const date_format = ({
 		}
 		return undefined;
 	},
-	get_small_flickr = (url: string) => url.replace('_o.jpg', '_n.jpg');
+	get_small_flickr = (url: string) => url.replace('_o.', '_n.');
 
 export { date_format, frame_loop, truncate, for_title, get_small_flickr };
